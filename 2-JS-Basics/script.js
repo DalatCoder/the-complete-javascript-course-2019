@@ -87,7 +87,7 @@ console.log(typeof x);
 /**
  * Operator precedence
  */
-
+/*
 var now = 2018;
 var yearJohn = 1989;
 var fullAge = 18;
@@ -119,6 +119,30 @@ x++;
 console.log(x);
 x--;
 console.log(x);
+*/
+
+/**
+ * CODING CHALLENGE 1
+ */
+/*
+  Mark and John are trying to compare their BMI (Body
+    Mass index), which is calculated using the formula:
+    BMI = mass / height^2 = mass / (height * height).
+    (mass is kg and height ini meter).
+*/
+var massMark, massJohn, heightMark, heightJohn;
+massMark = 70;
+massJohn = 80;
+heightMark = 1.8;
+heightJohn = 1.7;
+
+var BMIMark, BMIJohn;
+BMIMark = massMark / (heightMark * heightMark);
+BMIJohn = massJohn / (heightJohn * heightJohn);
+
+var BMIGreater = BMIMark > BMIJohn;
+console.log('Is Mark\'s BMI higher than John\'s? ' + BMIGreater);
+
 
 
 
