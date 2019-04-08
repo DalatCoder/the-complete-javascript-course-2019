@@ -194,6 +194,7 @@ if (age < 13) {
 	console.log(firstName + ' is a man.';
 }
 
+console.log('Hello world again);
 
 
 
