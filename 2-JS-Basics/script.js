@@ -143,6 +143,7 @@ BMIJohn = massJohn / (heightJohn * heightJohn);
 var BMIGreater = BMIMark > BMIJohn;
 console.log('Is Mark\'s BMI higher than John\'s? ' + BMIGreater);
 
+console.log('Hello world again');
 
 
 
