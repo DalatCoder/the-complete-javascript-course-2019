@@ -184,7 +184,7 @@ if (BMIMark > BMIJohn) {
 /** 
  * Boolean logic
  */
-
+/**
 var firstName = 'John';
 var age = 16;
 
@@ -196,13 +196,52 @@ if (age < 13) {
 
 console.log('Hello world again);
 
+function greeting() {
+	console.log('Hello world');
+}
 
+*/
 
+var firstName = 'John';
+var age = 16;
 
+age >= 18 ? console.log(firstName + ' drinks beer.') : console.log(firstName + ' drink juice');
 
+var drink = age >= 18 ? 'beer' : 'juice';
+console.log(drink);
 
+if (age >= 18) {
+	var drink = 'beer';
+} else {
+	var drink = 'juice';
+}
 
+/**
+ * Coding challenge 2
+ */
 
+ var scoreJohn = (89 + 128 + 103) / 3;
+ var scoreMike = (116 + 94 + 123) / 3;
+ var scoreMary = (97 + 134 + 105) / 3;
+ console.log(scoreJohn, scoreMike, scoreMary);
+
+//  if (scoreJohn > scoreMike) {
+// 	 console.log('John\'s team wins with ' + scoreJohn + ' points');
+//  } else if (scoreMike > scoreJohn) {
+// 	 console.log('Mike\'s team wins with ' + scoreMike + ' points');
+//  } else {
+// 	 console.log('There is a draw');
+//  }
+
+if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
+	console.log('John\'s team wins with ' + scoreJohn + ' poinnts');
+} else if (scoreMike > scoreJohn && scoreMike > scoreMary) {
+	console.log('Mike\'s team wins with ' + scoreJohn + ' points');
+} else if (scoreMary > scoreJohn && scoreMary > scoreMike) {
+	console.log('Mary\'s team wins with ' + scoreMary + ' points');
+} else {
+	console.log('There is a draw');
+}
 
 
 
