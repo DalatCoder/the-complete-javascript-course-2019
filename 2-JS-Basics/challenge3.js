@@ -1,31 +1,23 @@
-/**
- * CODING CHALLENGE 2
- */
-
- function calculateTip(money) {
-  var tipPercent;
-  if (money < 50) {
-    tipPercent = 0.2;
-  } else if (money < 200) {
-    tipPercent = 0.15;
+function tipCalculator(bill) {
+  var percentage;
+  if (bill < 50) {
+    percentage = .2;
+  } else if (bill >= 50 && bill < 200) {
+    percentage = .15;
   } else {
-    tipPercent = 0.1;
+    percentage = .1;
   }
-  return tipPercent * money;
- }
+  return percentage * bill;
+}
 
- var tips = [];
- var total = [];
+var bills = [124, 48, 268];
+var tips = [tipCalculator(bills[0]), 
+            tipCalculator(bills[1]),
+            tipCalculator(bills[2])];
 
- tips.push(calculateTip(124));
- tips.push(calculateTip(48));
- tips.push(calculateTip(258));
+var finalValues = [bills[0] + tips[0],
+                   bills[1] + tips[1],
+                   bills[2] + tips[2]];
 
- total.push(tips[0] + 124);
- total.push(tips[1] + 48);
- total.push(tips[2] + 268);
+console.log(tips, finalValues);
 
- console.log(tips);
- console.log(total);
-
- 
