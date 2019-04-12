@@ -14,10 +14,12 @@ var john = {
     console.log(this);
     console.log(2016 - this.yearOfBirth);
 
+    /*
     function innerFunction() {
       console.log(this);
     }
     innerFunction();
+    */
   }
 };
 
@@ -29,5 +31,6 @@ var mike = {
 }
 
 mike.calculateAge = john.calculateAge;
+mike.calculateAge();
 
 
