@@ -19,8 +19,15 @@ var john = {
     }
     innerFunction();
   }
-}
+};
 
 john.calculateAge();
+
+var mike = {
+  name: 'Mike',
+  yearOfBirth: 1984,
+}
+
+mike.calculateAge = john.calculateAge;
 
 
