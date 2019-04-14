@@ -38,18 +38,42 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     document.getElementById('current-' + activePlayer).textContent = roundScore;
   } else {
     // Next player turn 
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-    roundScore = 0;
-
-    // Reset score
-    document.getElementById('current-0').textContent = 0;
-    document.getElementById('current-1').textContent = 0;
-
-    // change active panel
-    document.querySelector('.player-0-panel').classList.toggle('active');
-    document.querySelector('.player-1-panel').classList.toggle('active');
-
-    // Hide dice
-    diceDOM.style.display = 'none';
+  nextPlayer();
   }
 });
+
+document.querySelector('.btn-hold').addEventListener('click', function() {
+  // Add CURRENT score to GLOBAL score
+  scores[activePlayer] += roundScore;
+
+  // Update the UI
+  document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
+
+  // Check if player won the game
+  if (scores[activePlayer] >= 10) {
+    document.getElementById('name-' + activePlayer).textContent = 'winner';
+    document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+    document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+  } else {
+    // Next player
+    nextPlayer();
+  }
+});
+
+function nextPlayer() {
+  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+  roundScore = 0;
+
+  // Reset score
+  document.getElementById('current-0').textContent = 0;
+  document.getElementById('current-1').textContent = 0;
+
+  // change active panel
+  document.querySelector('.player-0-panel').classList.toggle('active');
+  document.querySelector('.player-1-panel').classList.toggle('active');
+
+  // Hide dice
+  document.querySelector('.dice').style.display = 'none';
+}
+
+
