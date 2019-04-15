@@ -9,7 +9,8 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, count;
+count = 0;
 
 init();
 
@@ -27,6 +28,18 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     if (dice !== 1) {
       // Add score
       roundScore += dice;
+      
+      if (dice === 6) {
+        count++;
+        if (count === 2) {
+          count = 0;
+          roundScore = 0;
+          scores[activePlayer] = 0;
+          document.getElementById('score-' + activePlayer).textContent = 0;
+          nextPlayer();
+        }
+      }
+      
       document.getElementById('current-' + activePlayer).textContent = roundScore;
     } else {
       // Next player turn 
@@ -108,5 +121,7 @@ function init() {
  * when one of them is a 1. (Hint: you will need CSS to position the second dice, so take a look at the CSS
  * code for the first one.)
  */
+
+
 
  
