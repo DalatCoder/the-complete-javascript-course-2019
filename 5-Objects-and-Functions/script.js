@@ -188,7 +188,27 @@ function retirement(retirementAge) {
 }
 
 var retirementUS = retirement(66);
+var retirementGermany = retirement(65);
+var retirementIceLand = retirement(67);
+
 retirementUS(2000);
+retirementGermany(2000);
+retirementIceLand(2000);
+
+function interviewQuestion1(job) {
+  return function(name) {
+    if (job === 'teacher') {
+      console.log('What subjects do you teach, ' + name + '?');
+    } else if (job === 'designer') {
+      console.log(name + ', can you please explain what UX design is?');
+    } else {
+      console.log('Hello , ' + name + ', What do you do?');
+    }
+  }
+}
+interviewQuestion1('designer')('Mark');
+
+
 
 
 
