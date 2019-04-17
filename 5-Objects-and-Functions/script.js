@@ -173,9 +173,10 @@ game();
   console.log(score >= 5 - goodLuck);
 })(5);
 
-
-
-
+(function (a, b) {
+  var sum = a + b;
+  console.log(a + ' + ' + b + ' = ' + sum);
+})(1, 2);
 
 
 
