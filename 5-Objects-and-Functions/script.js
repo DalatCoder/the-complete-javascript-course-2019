@@ -154,6 +154,13 @@ interviewQuestion('teacher')('Jack');
 interviewQuestion('designer')('Oggy');
 interviewQuestion('streamer')('Dedee');
 
+// Lecture IIFE
+function game() {
+  var score = Math.random() * 10;
+  console.log(score >= 5);
+}
+game();
+
 
 
 
