@@ -136,7 +136,7 @@ function interviewQuestion(job) {
     };
   } else {
     return function(name) {
-      console.log('Hello' + name + ', what do you do?');
+      console.log('Hello ' + name + ', what do you do?');
     };
   }
 }
@@ -146,6 +146,13 @@ var designerQuestion = interviewQuestion('designer');
 
 teacherQuestion('John');
 designerQuestion('John');
+designerQuestion('Jane');
+designerQuestion('Mark');
+designerQuestion('Mike');
+
+interviewQuestion('teacher')('Jack');
+interviewQuestion('designer')('Oggy');
+interviewQuestion('streamer')('Dedee');
 
 
 
