@@ -242,11 +242,16 @@ john.presentation.call(emily, 'formal', 'night');
 john.presentation.call(emily, 'formal', 'noon');
 john.presentation.call(emily, 'friendly', 'morning');
 
-// var mark = {
-//   name: 'Mark',
-//   age: 20,
-//   job: 'student'
-// }
+var mark = {
+  name: 'Mark',
+  age: 20,
+  job: 'student'
+}
+
+john.presentation.call(mark, 'friendly', 'noon');
+john.presentation.call(mark, 'formal', 'morning');
+john.presentation.call(mark, 'friendly', 'night');
+
 
 
 
