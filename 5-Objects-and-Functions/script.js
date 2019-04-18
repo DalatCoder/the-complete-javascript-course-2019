@@ -214,7 +214,17 @@ interviewQuestion1('designer')('Mark');
 var john = {
   name: 'John',
   age: 26,
-  job: 'teacher'
+  job: 'teacher',
+  presentation: function(style, timeOfDay) {
+    if (style === 'formal') {
+      console.log('Good ' + timeOfDay + ', Ladies and gentlement! I\'m ' +
+      this.name + ', I\'m a ' +
+      this.job + ' and I\'m ' +
+      this.age + ' years old.');
+    } else if (style === 'friendly') {
+
+    }
+  }
 };
 
 
