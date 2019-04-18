@@ -228,6 +228,14 @@ var john = {
   }
 };
 
+var emily = {
+  name: 'Emily',
+  age: 35,
+  job: 'designer'
+}
+
+john.presentation('formal', 'morning');
+
 
 
 
