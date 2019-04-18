@@ -263,6 +263,10 @@ var emilyFormal = john.presentation.bind(emily, 'formal');
 emilyFriendly('noon');
 emilyFormal('afternoon');
 
+var markFriendly = john.presentation.bind(mark, 'friendly');
+var markFormal = john.presentation.bind(mark, 'formal');
+markFriendly('morning');
+markFormal('noon');
 
 
 
