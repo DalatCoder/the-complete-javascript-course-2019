@@ -209,7 +209,13 @@ function interviewQuestion1(job) {
 interviewQuestion1('designer')('Mark');
 
 
+// Lecture: Bind, call and apply
 
+var john = {
+  name: 'John',
+  age: 26,
+  job: 'teacher'
+};
 
 
 
