@@ -236,6 +236,17 @@ var emily = {
 
 john.presentation('formal', 'morning');
 
+john.presentation.call(emily, 'friendly', 'afternoon');
+// john.presentation.apply(emily, ['friendly', 'afternoon']);
+john.presentation.call(emily, 'formal', 'night');
+john.presentation.call(emily, 'formal', 'noon');
+john.presentation.call(emily, 'friendly', 'morning');
+
+// var mark = {
+//   name: 'Mark',
+//   age: 20,
+//   job: 'student'
+// }
 
 
 
