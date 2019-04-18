@@ -222,7 +222,7 @@ var john = {
       this.job + ' and I\'m ' +
       this.age + ' years old.');
     } else if (style === 'friendly') {
-      console.log('Hey! What\'s up? I\'m ' + this.name + 'I\'m a ' + this.job +
+      console.log('Hey! What\'s up? I\'m ' + this.name + ' I\'m a ' + this.job +
       ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay);
     }
   }
@@ -252,6 +252,11 @@ john.presentation.call(mark, 'friendly', 'noon');
 john.presentation.call(mark, 'formal', 'morning');
 john.presentation.call(mark, 'friendly', 'night');
 
+// create function preset
+var johnFriendly = john.presentation.bind(john, 'friendly');
+johnFriendly('morning');
+var johnFormal = john.presentation.bind(john, 'formal');
+johnFriendly('afternoon');
 
 
 
