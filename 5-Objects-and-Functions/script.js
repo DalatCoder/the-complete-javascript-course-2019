@@ -102,11 +102,10 @@ function calculateAge(el) {
   return 2019 - el;
 }
 
-function isFullAge(el) {
+function isFullAge(limit, el) {
   return el >= 18;
 }
 
-*/
 
 function maxHeartRate(el) {
   if (el >= 18 && el <= 81) {
@@ -124,6 +123,8 @@ console.log(fullAges);
 
 var rates = arrayCalc(ages, maxHeartRate);
 console.log(rates);
+
+*/
 
 // Lecture: Functions returning functions
 
@@ -270,7 +271,8 @@ var markFormal = john.presentation.bind(mark, 'formal');
 markFriendly('morning');
 markFormal('noon');
 
-// Practice
+
+
 var years = [1990, 1965, 1937, 2005, 1998];
 
 function arrayCalc(arr, fn) {
@@ -285,19 +287,11 @@ function calculateAge(el) {
   return 2019 - el;
 }
 
-function isFullAge(el) {
-  return el >= 18;
+function isFullAge(limit, age) {
+  return age >= limit;
 }
 
-
-
-
-
-
-
-
-
-  
+var ages = arrayCalc(years, calculateAge);
 
 
 
