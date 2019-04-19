@@ -12,7 +12,15 @@ Question.prototype.displayQuestion = function() {
   for (var i = 0; i < this.answers.length; i++) {
     console.log(i + ': ' + this.answers[i]);
   }
-}
+};
+
+Question.prototype.checkAnswer = function(ans) {
+  if (ans === this.correct) {
+    console.log('Correct answer!');
+  } else {
+    console.log('Wrong answer! Try again :)');
+  }
+};
 
 var q1 = new Question('Is JavaScript the cooleast programming language in the world!',
                       ['Yes', 'No'],
@@ -32,6 +40,10 @@ var questions = [q1, q2, q3];
 var n = Math.floor(Math.random() * questions.length);
 
 questions[n].displayQuestion();
+
+var answer = parseInt(prompt('Please select the correct answer?'));
+
+questions[n].checkAnswer(answer);
 
 
 
