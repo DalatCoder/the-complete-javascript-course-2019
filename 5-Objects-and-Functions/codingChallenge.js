@@ -19,3 +19,16 @@ var q3 = new Question('What does best describe coding?',
                       ['Boring', 'Hard', 'Fun', 'Tedious'],
                       2);
 
+var questions = [q1, q2, q3];
+
+var n = Math.floor(Math.random() * questions.length);
+
+console.log(questions[n]);
+
+
+
+
+
+
+
+
