@@ -39,6 +39,17 @@
 
   var questions = [q1, q2, q3];
 
+  function score() {
+    var sc = 0;
+    return function(correct) {
+      if (correct) {
+        sc++;
+      }
+      return score();
+    }
+  }
+  var keepScore = score();
+
   function nextQuestion() {
 
     var n = Math.floor(Math.random() * questions.length);
@@ -48,7 +59,7 @@
     var answer =prompt('Please select the correct answer?');
 
     if (answer !== 'exit') {
-      
+
       questions[n].checkAnswer(parseInt(answer));
 
       nextQuestion();
