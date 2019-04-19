@@ -25,7 +25,14 @@
       console.log('Wrong answer! Try again :)');
       sc = callback(false);
     }
+
+    this.displayScore(sc);
   };
+
+  Question.prototype.displayScore = function(score) {
+    console.log('Your current score is: ' + score);
+    console.log('-------------------------------');
+  }
 
   var q1 = new Question('Is JavaScript the cooleast programming language in the world!',
                         ['Yes', 'No'],
@@ -48,7 +55,7 @@
       if (correct) {
         sc++;
       }
-      return score();
+      return sc;
     }
   }
 
