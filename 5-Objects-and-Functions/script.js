@@ -330,11 +330,13 @@ console.log(fullJapan2);
                  new Question('What\'s my age?', ['1. 18', '2. 19'], '2'), 
                  new Question('What\'s my job?', ['1. Student', '2. Teacher'], '1'));
   
-  var questionNumber = Math.floor(Math.random() * 3);
-  console.log(questions[questionNumber].displayQuestion());
-  
   var input = prompt('Enter your answer >> ');
-  questions[questionNumber].printResult(input);  
+
+  if (input !== 'exit') {
+    var questionNumber = Math.floor(Math.random() * 3);
+    console.log(questions[questionNumber].displayQuestion());
+    questions[questionNumber].printResult(input);  
+  }
 })();
 
 
