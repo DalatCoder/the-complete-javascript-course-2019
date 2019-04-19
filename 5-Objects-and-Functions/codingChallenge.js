@@ -6,6 +6,14 @@ function Question(question, answers, correct) {
   this.correct = correct;
 }
 
+Question.prototype.displayQuestion = function() {
+  console.log(this.question);
+
+  for (var i = 0; i < this.answers.length; i++) {
+    console.log(i + ': ' + this.answers[i]);
+  }
+}
+
 var q1 = new Question('Is JavaScript the cooleast programming language in the world!',
                       ['Yes', 'No'],
                       0);
@@ -23,7 +31,7 @@ var questions = [q1, q2, q3];
 
 var n = Math.floor(Math.random() * questions.length);
 
-console.log(questions[n]);
+questions[n].displayQuestion();
 
 
 
