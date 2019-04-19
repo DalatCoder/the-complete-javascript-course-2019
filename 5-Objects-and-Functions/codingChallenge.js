@@ -16,11 +16,14 @@
     }
   };
 
-  Question.prototype.checkAnswer = function(ans) {
+  Question.prototype.checkAnswer = function(ans, callback) {
+    var sc;
     if (ans === this.correct) {
       console.log('Correct answer!');
+      sc = callback(true);
     } else {
       console.log('Wrong answer! Try again :)');
+      sc = callback(false);
     }
   };
 
@@ -48,6 +51,7 @@
       return score();
     }
   }
+
   var keepScore = score();
 
   function nextQuestion() {
@@ -60,7 +64,7 @@
 
     if (answer !== 'exit') {
 
-      questions[n].checkAnswer(parseInt(answer));
+      questions[n].checkAnswer(parseInt(answer), keepScore);
 
       nextQuestion();
     }
