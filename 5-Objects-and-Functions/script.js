@@ -340,13 +340,19 @@ console.log(fullJapan2);
   
   var questions = [q1, q2, q3];
   
-  var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+  function nextQuestion() {
+    var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
   
-  randomQuestion.displayQuestion();
-  
-  var input = parseInt(prompt('Enter your choose: '));
-                        
-  randomQuestion.checkAnswer(input);  
+    randomQuestion.displayQuestion();
+    
+    var input = parseInt(prompt('Enter your choose: '));
+                          
+    randomQuestion.checkAnswer(input);  
+    
+    nextQuestion();
+  }
+
+  nextQuestion();
 })();
 
 
