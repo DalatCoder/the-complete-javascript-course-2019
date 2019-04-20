@@ -319,78 +319,81 @@ console.log(fullJapan2);
   
 */
 
-function Question(question, answers, correct) {
-  this.question = question;
-  this.answers = answers;
-  this.correct = correct;
-}
-
-Question.prototype.displayQuestion = function() {
-  console.log(this.question);
-  for (var i = 0; i < this.answers.length; i++) {
-    console.log(i + ': ' + this.answers[i]);
+( function () {
+  function Question(question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = correct;
   }
-}
-
-Question.prototype.checkAnswer = function(answer, callback) {
-  var sc;
-
-  if (answer === this.correct) {
-    console.log('Correct answer!');
-    sc = callback(true);
-  } else {
-    console.log('Wrong answer!');
-    sc = callback(false);
-  }
-
-  this.displayScore(sc);
-}
-
-Question.prototype.displayScore = function(score) {
-  console.log('Your current score is: ' + score);
-  console.log('=================================');
-}
-
-var q1 = new Question('Is Javascript the coolest programing language in the world?',
-                      ['Yes', 'No'],
-                      0);
-
-var q2 = new Question('What is the name of this courses\'s teacher?',
-                      ['John', 'Michael', 'Jonas'],
-                      2);
-
-var q3 = new Question('What does best decribe coding?',
-                      ['Boring', 'Hard', 'Fun', 'Tedious'],
-                      2);
-
-var questions = [q1, q2, q3];
-
-function score() {
-  var sc = 0;
-  return function(answer) {
-    if (answer) {
-      sc++;
-    }
-    return sc;
-  }
-}
-
-var keepScore = score();
-
-function nextQuestion() {
-  var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
-
-  randomQuestion.displayQuestion();
   
-  var answer = prompt('Enter your answer: ');
-
-  if (answer !== 'exit') {
-    randomQuestion.checkAnswer(parseInt(answer), keepScore);  
-    nextQuestion();
+  Question.prototype.displayQuestion = function() {
+    console.log(this.question);
+    for (var i = 0; i < this.answers.length; i++) {
+      console.log(i + ': ' + this.answers[i]);
+    }
   }
-}
+  
+  Question.prototype.checkAnswer = function(answer, callback) {
+    var sc;
+  
+    if (answer === this.correct) {
+      console.log('Correct answer!');
+      sc = callback(true);
+    } else {
+      console.log('Wrong answer!');
+      sc = callback(false);
+    }
+  
+    this.displayScore(sc);
+  }
+  
+  Question.prototype.displayScore = function(score) {
+    console.log('Your current score is: ' + score);
+    console.log('=================================');
+  }
+  
+  var q1 = new Question('Is Javascript the coolest programing language in the world?',
+                        ['Yes', 'No'],
+                        0);
+  
+  var q2 = new Question('What is the name of this courses\'s teacher?',
+                        ['John', 'Michael', 'Jonas'],
+                        2);
+  
+  var q3 = new Question('What does best decribe coding?',
+                        ['Boring', 'Hard', 'Fun', 'Tedious'],
+                        2);
+  
+  var questions = [q1, q2, q3];
+  
+  function score() {
+    var sc = 0;
+    return function(answer) {
+      if (answer) {
+        sc++;
+      }
+      return sc;
+    }
+  }
+  
+  var keepScore = score();
+  
+  function nextQuestion() {
+    var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+  
+    randomQuestion.displayQuestion();
+    
+    var answer = prompt('Enter your answer: ');
+  
+    if (answer !== 'exit') {
+      randomQuestion.checkAnswer(parseInt(answer), keepScore);  
+      nextQuestion();
+    }
+  }
+  
+  nextQuestion();  
+})();
 
-nextQuestion();
 
 
 
