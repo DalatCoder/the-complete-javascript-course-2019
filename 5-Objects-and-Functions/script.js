@@ -317,6 +317,14 @@ Question.prototype.displayQuestion = function() {
   }
 }
 
+Question.prototype.checkAnswer = function(input) {
+  if (input === this.correct) {
+    console.log('Correct answer!');
+  } else {
+    console.log('Wrong answer!');
+  }
+}
+
 var q1 = new Question('Is Javascript the coolest programing language in the world?',
                       ['Yes', 'No'],
                       0);
@@ -331,12 +339,14 @@ var q3 = new Question('What does best decribe coding?',
 
 var questions = [q1, q2, q3];
 
-var randomQuestion = Math.floor(Math.random() * questions.length);
+var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 
-questions[randomQuestion].displayQuestion();
+randomQuestion.displayQuestion();
 
-
+var input = parseInt(prompt('Enter your choose: '));
                       
+randomQuestion.checkAnswer(input);
+
 
 
 
