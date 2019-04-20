@@ -345,11 +345,12 @@ console.log(fullJapan2);
   
     randomQuestion.displayQuestion();
     
-    var input = parseInt(prompt('Enter your choose: '));
-                          
-    randomQuestion.checkAnswer(input);  
+    var input = prompt('Enter your choose: ');
     
-    nextQuestion();
+    if (input !== 'exit') {
+      randomQuestion.checkAnswer(parseInt(input));  
+      nextQuestion();
+    }
   }
 
   nextQuestion();
