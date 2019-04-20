@@ -321,8 +321,8 @@ console.log(fullJapan2);
     }
   }
   
-  Question.prototype.checkAnswer = function(input) {
-    if (input === this.correct) {
+  Question.prototype.checkAnswer = function(answer) {
+    if (answer === this.correct) {
       console.log('Correct answer!');
       score++;
     } else {
@@ -354,10 +354,10 @@ console.log(fullJapan2);
   
     randomQuestion.displayQuestion();
     
-    var input = prompt('Enter your choose: ');
+    var answer = prompt('Enter your choose: ');
     
-    if (input !== 'exit') {
-      randomQuestion.checkAnswer(parseInt(input));  
+    if (answer !== 'exit') {
+      randomQuestion.checkAnswer(parseInt(answer));  
       randomQuestion.displayScore();
       nextQuestion();
     }
