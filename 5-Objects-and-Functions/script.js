@@ -332,12 +332,23 @@ Question.prototype.displayQuestion = function() {
   }
 }
 
-Question.prototype.checkAnswer = function(answer) {
+Question.prototype.checkAnswer = function(answer, callback) {
+  var sc;
+
   if (answer === this.correct) {
     console.log('Correct answer!');
+    sc = callback(true);
   } else {
     console.log('Wrong answer!');
+    sc = callback(false);
   }
+
+  this.displayScore(sc);
+}
+
+Question.prototype.displayScore = function(score) {
+  console.log('Your current score is: ' + score);
+  console.log('=================================');
 }
 
 var q1 = new Question('Is Javascript the coolest programing language in the world?',
@@ -354,15 +365,27 @@ var q3 = new Question('What does best decribe coding?',
 
 var questions = [q1, q2, q3];
 
+function score() {
+  var sc = 0;
+  return function(answer) {
+    if (answer) {
+      sc++;
+    }
+    return sc;
+  }
+}
+
+var keepScore = score();
+
 function nextQuestion() {
   var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 
   randomQuestion.displayQuestion();
   
   var answer = prompt('Enter your answer: ');
-  
+
   if (answer !== 'exit') {
-    randomQuestion.checkAnswer(parseInt(answer));  
+    randomQuestion.checkAnswer(parseInt(answer), keepScore);  
     nextQuestion();
   }
 }
