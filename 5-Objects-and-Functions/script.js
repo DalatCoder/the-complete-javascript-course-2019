@@ -302,43 +302,6 @@ console.log(fullJapan2);
 
 // CODING CHALLENGE
 
-// Create invoke function to hide code
-(function() {
-  function Question(question, answers, result) {
-    this.question = question;
-    this.answers = answers;
-    this.result = result;
-  };
-  
-  Question.prototype.displayQuestion = function() {
-    console.log(this.question);
-    for (var i = 0; i < this.answers.length; i++) {
-      console.log(this.answers[i]);
-    }
-  };
-  
-  Question.prototype.printResult = function(input) {
-    if (input === this.result) {
-      console.log('Correct answer');
-    } else {
-      console.log('Wrong answer');
-    }
-  };
-  
-  var questions = [];
-  questions.push(new Question('What\'s my name?', ['1. Hieu', '2. Hung'], '1'), 
-                 new Question('What\'s my age?', ['1. 18', '2. 19'], '2'), 
-                 new Question('What\'s my job?', ['1. Student', '2. Teacher'], '1'));
-  
-  var input = prompt('Enter your answer >> ');
-
-  if (input !== 'exit') {
-    var questionNumber = Math.floor(Math.random() * 3);
-    console.log(questions[questionNumber].displayQuestion());
-    questions[questionNumber].printResult(input);  
-  }
-})();
-
 
 
 
