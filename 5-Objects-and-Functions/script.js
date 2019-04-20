@@ -305,6 +305,9 @@ console.log(fullJapan2);
 // CODING CHALLENGE
 
 ( function () {
+
+  var score = 0;
+
   function Question(question, answers, correct) {
     this.question = question;
     this.answers = answers;
@@ -321,11 +324,17 @@ console.log(fullJapan2);
   Question.prototype.checkAnswer = function(input) {
     if (input === this.correct) {
       console.log('Correct answer!');
+      score++;
     } else {
       console.log('Wrong answer!');
     }
   }
   
+  Question.prototype.displayScore = function() {
+    console.log('Your current score is: ' + score);
+    console.log('-------------------------');
+  }
+
   var q1 = new Question('Is Javascript the coolest programing language in the world?',
                         ['Yes', 'No'],
                         0);
@@ -349,6 +358,7 @@ console.log(fullJapan2);
     
     if (input !== 'exit') {
       randomQuestion.checkAnswer(parseInt(input));  
+      randomQuestion.displayScore();
       nextQuestion();
     }
   }
