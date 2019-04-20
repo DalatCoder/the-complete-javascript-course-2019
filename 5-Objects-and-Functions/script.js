@@ -306,8 +306,6 @@ console.log(fullJapan2);
 
 ( function () {
 
-  var score = 0;
-
   function Question(question, answers, correct) {
     this.question = question;
     this.answers = answers;
@@ -321,16 +319,21 @@ console.log(fullJapan2);
     }
   }
   
-  Question.prototype.checkAnswer = function(answer) {
+  Question.prototype.checkAnswer = function(answer, keepScore) {
+    var sc;
+
     if (answer === this.correct) {
       console.log('Correct answer!');
-      score++;
+      sc = keepScore(true);
     } else {
       console.log('Wrong answer!');
+      sc = keepScore(false);
     }
+
+    this.displayScore(sc);
   }
   
-  Question.prototype.displayScore = function() {
+  Question.prototype.displayScore = function(score) {
     console.log('Your current score is: ' + score);
     console.log('-------------------------');
   }
@@ -349,6 +352,18 @@ console.log(fullJapan2);
   
   var questions = [q1, q2, q3];
   
+  function score() {
+    var sc = 0;
+    return function(correct) {
+      if (correct) {
+        sc++;
+      }
+      return sc;
+    }
+  }
+
+  var keepScore = score();
+
   function nextQuestion() {
     var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
   
@@ -357,8 +372,7 @@ console.log(fullJapan2);
     var answer = prompt('Enter your choose: ');
     
     if (answer !== 'exit') {
-      randomQuestion.checkAnswer(parseInt(answer));  
-      randomQuestion.displayScore();
+      randomQuestion.checkAnswer(parseInt(answer), keepScore);  
       nextQuestion();
     }
   }
