@@ -13,3 +13,9 @@ var budgetController = (function() {
   }
 
 })();
+
+var UIController = (function() {
+
+  // Add code later
+
+})();
