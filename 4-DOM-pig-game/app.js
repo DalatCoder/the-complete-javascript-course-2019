@@ -1,19 +1,7 @@
 
 var activePlayer, scores, roundScore, winningScore;
 
-activePlayer = 0;
-scores = [0, 0];
-roundScore = 0;
-winningScore = 20;
-
-// Hide the dice by default
-document.querySelector('.dice').style.display = 'none';
-
-// Set all score to 0
-document.getElementById('score-0').textContent = 0;
-document.getElementById('score-1').textContent = 0;
-document.getElementById('current-0').textContent = 0;
-document.getElementById('current-1').textContent = 0;
+init();
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
 
@@ -51,6 +39,8 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 
 });
 
+document.querySelector('.btn-new').addEventListener('click', init);
+
 function nextPlayer() {
   roundScore = 0;
     
@@ -63,5 +53,23 @@ function nextPlayer() {
 
   // hide the dice
   document.querySelector('.dice').style.display = 'none';
+}
+
+function init() {
+
+  activePlayer = 0;
+  scores = [0, 0];
+  roundScore = 0;
+  winningScore = 20;
+  
+  // Hide the dice by default
+  document.querySelector('.dice').style.display = 'none';
+  
+  // Set all score to 0
+  document.getElementById('score-0').textContent = 0;
+  document.getElementById('score-1').textContent = 0;
+  document.getElementById('current-0').textContent = 0;
+  document.getElementById('current-1').textContent = 0;
+  
 }
 
