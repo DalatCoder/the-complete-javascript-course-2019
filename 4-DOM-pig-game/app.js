@@ -12,6 +12,8 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     document.querySelector('.dice').style.display = 'block';
     document.querySelector('.dice').src = 'dice-' + dice + '.png';
 
+    console.log(dice);
+
     // 3. Update current score
     if (dice != 1) {
       roundScore += dice;
@@ -28,6 +30,8 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     // Update the score
     scores[activePlayer] += roundScore;
     document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
+
+    console.log(scores[activePlayer]);
 
     // check if player win the game
     if (scores[activePlayer] >= winningScore) {
