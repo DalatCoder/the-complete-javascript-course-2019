@@ -24,6 +24,21 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
   document.querySelector('.dice').src = 'dice-' + dice + '.png';
 
   // 3. Update current score
-  roundScore += dice;
+  if (dice != 1) {
+    roundScore += dice;
+  } else {
+    roundScore = 0;
+    
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+    document.getElementById('current-0').textContent = 0;
+    document.getElementById('current-1').textContent = 0;
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+  }
+
   document.getElementById('current-' + activePlayer).textContent = roundScore;
 });
+
+
+
