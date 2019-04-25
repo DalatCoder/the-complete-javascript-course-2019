@@ -14,7 +14,7 @@ var budgetController = (function() {
   };
 
   var data = {
-    allItems = {
+    allItems: {
       exp: [],
       inc: []
     },
@@ -43,6 +43,9 @@ var budgetController = (function() {
 
       // Return the new element
       return newItem;
+    },
+    testing: function() {
+      console.log(data);
     }
   };
 
@@ -91,11 +94,13 @@ var controller = (function(budgetCtrl, UICtrl) {
   };
 
   var ctrlAddItem = function() {
-    // 1. Get the field input data
+    var input, newItem;
 
-    var input = UICtrl.getInput();
+    // 1. Get the field input data
+    input = UICtrl.getInput();
 
     // 2. Add the item to the budget controller
+    newItem = budgetController.addItem(input.type, input.description, input.value);
 
     // 3. Add the item to the UI
 
