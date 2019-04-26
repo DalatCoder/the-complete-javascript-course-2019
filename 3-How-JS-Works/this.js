@@ -1,26 +1,16 @@
 
-var a = 13;
-first(); // Hoisting
+// Lecture: this keyword
 
-console.log('Global: ' + this);
+calculateAge(2000);
 
-function first() {
-  var b = 2;
-  console.log('Local first function ' + this.first);
-  console.log('Global scope: ' + this.third);
-  second(); // Hoisting
-
-  function second() {
-    var c = 3;
-    console.log('Local second function: ' + this.first);
-    console.log('Global scope: ' + this.third);
-    third();
-  }
+/**
+ * 
+ * In regurlar function call, the this pointer always point the the window object
+ * calculateAge function is attached to window object
+ * so, calculateAge function is a property of window object 
+ */
+function calculateAge(year) {
+  console.log(2019 - year);
+  console.log(this);
 }
-
-function third() {
-  var d = 4;
-  console.log('Global third function: ' + this.third);
-}
-
 
