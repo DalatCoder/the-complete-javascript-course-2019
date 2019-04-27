@@ -14,3 +14,21 @@ function calculateAge(year) {
   console.log(this);
 }
 
+var john = {
+  name: 'John',
+  yearOfBirth: 1990,
+  calculateAge: function(year) {
+    console.log(this);
+  }
+}
+
+john.calculateAge(john.yearOfBirth);
+
+var mike = {
+  name: 'Mike',
+  yearOfBirth: 1985
+};
+
+// Borrow
+mike.calculateAge = john.calculateAge;
+mike.calculateAge();
