@@ -8,7 +8,7 @@ var budgetController = (function() {
 
   return {
     publicTest: function(b) {
-      console.log(add(b));
+      return add(b);
     }
   };
 
@@ -26,7 +26,7 @@ var controller = (function(budgetCtrl, UICtrl) {
 
   return {
     anotherTest: function() {
-      console.log(z);
+      return z;
     }
   };
 
