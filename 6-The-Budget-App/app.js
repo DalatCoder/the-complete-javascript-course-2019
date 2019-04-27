@@ -9,9 +9,14 @@ var budgetController = (function() {
   return {
     publicTest: function(b) {
       console.log(add(b));
-      console.log(this);
     }
   }
+
+})();
+
+var UIController = (function() {
+
+  // Some code later
 
 })();
 
