@@ -30,7 +30,7 @@ var budgetController = (function() {
 
       // Create new unique ID
       if (data.allItems[type].length > 0) {
-        ID = data.allItems[type][data.allItems[type].length - 1] + 1;
+        ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
       } else {
         ID = 0;
       }
@@ -47,8 +47,11 @@ var budgetController = (function() {
 
       // Return the new element
       return newItem;
+    },
+    testing: function() {
+      console.log(data.allItems);
     }
-  }
+  };
 
 })();
 
