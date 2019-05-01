@@ -54,9 +54,11 @@ driverLisence6(true);
 {
   const a = 1;
   let b = 2;
+  var c = 5;
 }
 
 // console.log(a + b); // error
+console.log(c);
 
 // ES5
 (function() {
