@@ -46,7 +46,23 @@ function driverLisence6(passedTest) {
 }
 driverLisence6(true);
 
+/**
+ * Lecture: Blocks and IIFEs
+ */
 
+// ES6
+{
+  const a = 1;
+  let b = 2;
+}
+
+// console.log(a + b); // error
+
+// ES5
+(function() {
+  var c = 3;
+})();
+// console.log(c); // error
 
 
 
