@@ -22,6 +22,7 @@ console.log(name6);
 function driverLisence5(passedTest) {
 
   if (passedTest) {
+    console.log(firstName); // hoisting
     var firstName = 'John';
     var yearOfBirth = 1990;
 
@@ -35,6 +36,7 @@ driverLisence5(true);
 function driverLisence6(passedTest) {
 
   if (passedTest) {
+    // console.log(firstName); //error
     let firstName = 'John';
     const yearOfBirth = 1990;
 
