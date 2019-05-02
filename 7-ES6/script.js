@@ -213,6 +213,18 @@ console.log(b);
 
 
 
+function calcAgeRetirement(year) {
+  const age = new Date().getFullYear() - year;
+  return [age, 65 - age];
+}
+
+const [age1, retirement] = calcAgeRetirement(1990);
+console.log(age1);
+console.log(retirement);
+
+
+
+
 
 
 
