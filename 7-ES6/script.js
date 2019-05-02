@@ -224,6 +224,24 @@ console.log(retirement);
 
 
 
+/**
+ * Lecture: Arrays
+ */
+
+const boxes = document.querySelectorAll('.box');
+
+/*
+// ES5
+var boxesArr5 = Array.prototype.slice.call(boxes);
+boxesArr5.forEach(function(el) {
+  el.style.backgroundColor = 'dodgerblue';
+});
+*/
+
+const boxesArr6 = Array.from(boxes);
+boxesArr6.forEach(el => el.style.backgroundColor = 'dodgerblue');
+
+
 
 
 
