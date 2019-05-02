@@ -301,7 +301,9 @@ const familyMiller = ['Marry', 'Bob', 'Ann'];
 const bigFamily = [...familySmith, 'Lily', ...familyMiller];
 console.log(bigFamily);
 
-
+const h = document.querySelector('h1');
+const all = [h, ...boxes];
+Array.from(all).forEach(el => el.style.color = 'purple');
 
 
 
