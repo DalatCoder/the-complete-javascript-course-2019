@@ -278,6 +278,22 @@ console.log(ages[full.indexOf(true)]);
 console.log(ages.findIndex(cur => cur >= 18));
 console.log(ages.find(cur => cur >= 18));
 
+function addSixAges (a, b, c, d, e, f) {
+  return a + b + c + d + e + f;
+}
+
+var sum1 = addSixAges(12, 17, 8, 21, 14, 11);
+console.log(sum1);
+
+// ES5
+var sum2 = addSixAges.apply(null, ages);
+console.log(sum2);
+
+// ES6
+const sum3 = addSixAges(...ages);
+console.log(sum3);
+
+
 
 
 
