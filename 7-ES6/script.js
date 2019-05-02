@@ -416,6 +416,7 @@ for (let [key, value] of question.entries()) {
  * Lecture: Classes
  */
 
+ /*
 // ES5
 var Person5 = function(name, yearOfBirth, job) {
   this.name = name;
@@ -454,10 +455,42 @@ const john6 = new Person6('John', 1990, 'Teacher');
 john6.calculateAge();
 
 Person6.greeting();
+*/
 
+/**
+ * Lecture: Subclasses
+ */
 
+// ES5
+var Person5 = function(name, yearOfBirth, job) {
+  this.name = name;
+  this.yearOfBirth = yearOfBirth;
+  this.job = job;
+}
 
+Person5.prototype.calculateAge = function() {
+  var age = new Date().getFullYear() - this.yearOfBirth;
+  console.log(age);
+}
 
+var Athele5 = function(name, yearOfBirth, job, olympicGames, medals) {
+  Person5.call(this, name, yearOfBirth, job);
+  this.olympicGames = olympicGames;
+  this.medals = medals;
+}
+
+// Connect two prototypes
+Athele5.prototype = Object.create(Person5.prototype);
+
+Athele5.prototype.wonMedal = function() {
+  this.medals++;
+  console.log(this.medals);
+}
+
+var johnAthele5 = new Athele5('John', 1990, 'Swimmer', 3, 10);
+
+johnAthele5.calculateAge();
+johnAthele5.wonMedal();
 
 
 
