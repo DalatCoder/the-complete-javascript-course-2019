@@ -153,3 +153,19 @@ const box6 = {
 box6.clickMe();
 
 
+function Person(name) {
+  this.name = name;
+}
+
+// ES5
+Person.prototype.myFriends = function(friends) {
+
+  var arr = friends.map(function(current) {
+    return this.name + ' is friends with ' + current;
+  }.bind(this));
+
+  console.log(arr);
+}
+var friends = ['Bob', 'Jane', 'Mark'];
+new Person('John').myFriends(friends);
+
