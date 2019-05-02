@@ -158,7 +158,7 @@ function Person(name) {
 }
 
 // ES5
-Person.prototype.myFriends = function(friends) {
+Person.prototype.myFriend5 = function(friends) {
 
   var arr = friends.map(function(current) {
     return this.name + ' is friends with ' + current;
@@ -167,5 +167,16 @@ Person.prototype.myFriends = function(friends) {
   console.log(arr);
 }
 var friends = ['Bob', 'Jane', 'Mark'];
-new Person('John').myFriends(friends);
+new Person('John').myFriend5(friends);
+
+// ES6
+Person.prototype.myFriend6 = function(friends) {
+
+  var arr = friends.map(el => `${this.name} is friends with ${el}`);
+  console.log(arr);
+
+}
+
+new Person('John').myFriend6(friends);
+
 
