@@ -135,6 +135,21 @@ var box5 = {
     });
   }
 };
-box5.clickMe();
+// box5.clickMe();
+
+
+// ES6
+const box6 = {
+  color: 'green',
+  position: 1,
+  clickMe: function() {
+
+    document.querySelector('.green').addEventListener('click', () => {
+      const str = `This is box number: ${this.position} and it is ${this.color}`;
+      alert(str);
+    })
+  }
+}
+box6.clickMe();
 
 
