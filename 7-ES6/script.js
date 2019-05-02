@@ -196,4 +196,25 @@ console.log(name6);
 console.log(age6);
 
 
+const obj = {
+  firstName6: 'John',
+  lastName6: 'Smith'
+};
+
+// Variable name match the key
+const {firstName6, lastName6} = obj;
+console.log(firstName6);
+console.log(lastName6);
+
+const {firstName6: a, lastName6: b} = obj;
+console.log(a);
+console.log(b);
+
+
+
+
+
+
+
+
 
