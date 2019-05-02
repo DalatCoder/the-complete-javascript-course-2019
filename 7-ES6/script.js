@@ -94,6 +94,23 @@ console.log(n.includes('oh'));
 
 console.log(`${firstName} `.repeat(5));
 
+/**
+ * Arrow function
+ */
+
+const years = [1990, 1965, 1982, 1937];
+
+// ES5
+var ages5 = years.map(function(current) {
+  var now = new Date().getFullYear();
+  return now - current;
+});
+console.log(ages5);
+
+// ES6
+const ages6 = years.map(  el => 2019 - el  );
+console.log(ages6);
+
 
 
 
