@@ -50,6 +50,7 @@ driverLisence6(true);
  * Lecture: Blocks and IIFEs
  */
 
+/*
 // ES6
 {
   const a = 1;
@@ -65,8 +66,24 @@ console.log(c);
   var c = 3;
 })();
 // console.log(c); // error
+*/
 
+/**
+ * Lecture: Strings
+ */
 
+let firstName = 'John';
+let lastName = 'Smith';
+const yearOfBirth = 1990;
+function calcAge(year) {
+  return 2016 - year;
+}
+
+// ES5
+console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today, he is ' + calcAge(yearOfBirth) + ' years old.');
+
+// ES6
+console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calcAge(yearOfBirth)} years old.`);
 
 
 
