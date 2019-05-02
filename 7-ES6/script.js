@@ -309,7 +309,7 @@ Array.from(all).forEach(el => el.style.color = 'purple');
 /**
  * Lecture: Rest parameters
  */
-
+/*
  // ES5
 function isFullAge5() {
   // console.log(arguments);
@@ -328,7 +328,26 @@ function isFullAge6(...years) {
   years.forEach(el => console.log((2016 - el) >= 18));
 }
 isFullAge6(1990, 1999, 1965, 2016, ...[1990, 2010]);
+*/
 
+// ES5
+function isFullAge5(limit) {
+  // console.log(arguments);
+  var argsArr = Array.prototype.slice.call(arguments, 1);
+  
+  argsArr.forEach(function(el) {
+    console.log((2016 - el) >= limit);
+  });
+}
+
+isFullAge5(21, 1990, 1999, 1965);
+// isFullAge5(1990, 1999, 1965, 2016, 1987);
+
+// ES6
+function isFullAge6(limit, ...years) {
+  years.forEach(el => console.log((2016 - el) >= limit));
+}
+isFullAge6(1990, 1999, 1965, 2016, ...[1990, 2010]);
 
 
 
