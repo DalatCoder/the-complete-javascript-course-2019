@@ -492,6 +492,37 @@ var johnAthele5 = new Athele5('John', 1990, 'Swimmer', 3, 10);
 johnAthele5.calculateAge();
 johnAthele5.wonMedal();
 
+// ES6
+class Person6 {
+  constructor (name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+  }
+
+  calculateAge() {
+    const age = new Date().getFullYear() - this.yearOfBirth;
+    console.log(age);
+  }
+
+}
+
+class Athele6 extends Person6 {
+  constructor(name, yearOfBirth, job, olympicGames, medals) {
+    super(name, yearOfBirth, job);
+    this.olympicGames = olympicGames;
+    this.medals = medals;
+  }
+
+  wonMedal() {
+    this.medals++;
+    console.log(this.medals);
+  }
+}
+
+const johnAthele6 = new Athele6('John', 1990, 'Swimmer', 3, 10);
+johnAthele6.wonMedal();
+johnAthele6.calculateAge();
 
 
 
