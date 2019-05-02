@@ -295,6 +295,11 @@ console.log(sum3);
 
 
 
+const familySmith = ['John', 'Jane', 'Mark'];
+const familyMiller = ['Marry', 'Bob', 'Ann'];
+
+const bigFamily = [...familySmith, 'Lily', ...familyMiller];
+console.log(bigFamily);
 
 
 
