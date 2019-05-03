@@ -37,4 +37,12 @@ class Park extends Element {
   }
 }
 
+class Street extends Element {
+  constructor(name, buildYear, length, size) {
+    super(name, buildYear);
+    this.length = length;
+    this.size = size;
+  }
+}
+
 
