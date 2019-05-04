@@ -38,7 +38,7 @@ class Park extends Element {
 }
 
 class Street extends Element {
-  constructor(name, buildYear, length, size) {
+  constructor(name, buildYear, length, size=3) {
     super(name, buildYear);
     this.length = length;
     this.size = size;
@@ -91,6 +91,16 @@ function reportParks(p) {
 }
 
 function reportStreet(s) {
+
+  console.log('-------------- STREET REPORT --------------');
+
+  // Total and average length of town's streets
+  const [totalLength, avgLength] = calc(s.map(el => el.length));
+  console.log(`Our ${s.length} streets have a total length of ${totalLength} km, with an average of ${avgLength} km.`);
+
+  // Classify size
+  s.forEach(el => el.classsifyStreet());
+
 
 }
 
