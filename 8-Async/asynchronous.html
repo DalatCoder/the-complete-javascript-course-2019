@@ -23,28 +23,28 @@
         // };
 
         // first();
-            
-            function getRecipe() {
 
-                setTimeout(() => {
-                    const recipeID = [523, 883, 432, 974];
-                    console.log(recipeID);
+        function getRecipe() {
+            setTimeout(() => {
+                const recipeID = [523, 883, 432, 974];
+                console.log(recipeID);
 
-                    setTimeout(id => {
-                        const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
-                        console.log(`${id}: ${recipe.title}`);
+                setTimeout((id) => {
+                    const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
+                    console.log(`${id} ${recipe.title}`);
 
-                        setTimeout(publisher => {
-                            const recipe2 = {title: 'Italian Pizza', publisher: 'Jonas'};
-                            console.log(`${id}: ${recipe2.title}`);
-                        }, 1500, recipe.publisher);
+                    setTimeout((publisher) => {
+                        const recipe2 = {title: 'Italian Pizza', publisher};
+                        console.log(recipe2);
+                    }, 1500, recipe.publisher);
 
-                    }, 1500, recipeID[2]);
-                }, 2000);
+                }, 1500, recipeID[2]);
 
-            }
-            getRecipe();
-
+            }, 1500);
+        };
+        
+       getRecipe();  
+        
     </script>
 </body>
 </html>
