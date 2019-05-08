@@ -92,6 +92,9 @@
 
         const recipe = await getRecipe(IDs[2]);
         console.log(recipe);
+
+        const related = await getRelated('Jonas');
+        console.log(related);
     };
 
     getRecipeAW();
