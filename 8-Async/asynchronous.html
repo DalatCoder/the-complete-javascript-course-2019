@@ -95,9 +95,11 @@
 
         const related = await getRelated('Jonas');
         console.log(related);
+
+        return recipe;
     };
 
-    getRecipeAW();
+    getRecipeAW().then(result => console.log(result));
 
     </script>
 </body>
