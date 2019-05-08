@@ -86,12 +86,15 @@
     // });
 
 
-    async function recipe() {
+    async function getRecipeAW() {
         const IDs = await getIDs;
         console.log(IDs);
+
+        const recipe = await getRecipe(IDs[2]);
+        console.log(recipe);
     };
 
-    recipe();
+    getRecipeAW();
 
     </script>
 </body>
