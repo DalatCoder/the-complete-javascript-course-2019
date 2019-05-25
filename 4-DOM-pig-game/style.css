@@ -16,6 +16,14 @@
     text-transform: uppercase;
 }
 
+#dice-1 {
+    top: 120px;
+}
+
+#dice-2 {
+    top: 250px;
+}
+
 .final-score:focus {
     outline: none;
 }
