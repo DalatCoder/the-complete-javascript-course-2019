@@ -9,11 +9,12 @@ GAME RULES:
 
 */
 
-let scores, roundScore, activePlayer, gamePlaying;
+let scores, roundScore, activePlayer, gamePlaying, winningScore;
 
 init();
 
 document.querySelector('.btn-roll').addEventListener('click', () => {
+
     if (gamePlaying) {
         // 1. Random number
         const dice = Math.floor(Math.random() * 6) + 1;
@@ -35,7 +36,17 @@ document.querySelector('.btn-roll').addEventListener('click', () => {
 });
 
 document.querySelector('.btn-hold').addEventListener('click', () => {
+
     if (gamePlaying) {
+
+        let input = parseInt(document.querySelector('.final-score').value);
+
+        if (input) {
+            winningScore = input;
+        } else {
+            winningScore = 100;
+        }
+
         // Add current score to global scores
         scores[activePlayer] += roundScore;
 
@@ -43,7 +54,7 @@ document.querySelector('.btn-hold').addEventListener('click', () => {
         document.getElementById(`score-${activePlayer}`).textContent = scores[activePlayer];
 
         // Check if player won the game
-        if (scores[activePlayer] >= 20) {
+        if (scores[activePlayer] >= winningScore) {
             document.getElementById(`name-${activePlayer}`).textContent = 'WINNER!';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector(`.player-${activePlayer}-panel`).classList.remove('active');
