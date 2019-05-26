@@ -9,12 +9,25 @@ const server = http.createServer((req, res) => {
     const pathName = url.parse(req.url, true).pathname;
     const id = url.parse(req.url, true).query.id;
 
+
     // Products overview
     if (pathName === '/products' || pathName === '/') {
         res.writeHead(200, {
             'Content-type': 'text/html'
         });
-        res.end('This is the products page');
+
+        fs.readFile(`${__dirname}/templates/overview-template.html`, 'utf-8', (err, data) => {
+
+            let overViewOutput = data;
+
+            fs.readFile(`${__dirname}/templates/card-template.html`, 'utf-8', (err, data) => {
+                const cards = laptopData.map(el => replaceTemplate(data, el)).join('');
+                overViewOutput = overViewOutput.replace('{%CARDS%}', cards);
+                res.end(overViewOutput);
+            });
+
+        });
+
     }
 
     // laptop overview
@@ -52,5 +65,6 @@ function replaceTemplate(originalHtml, laptop) {
     output = output.replace(/{%RAM%}/g, laptop.ram);
     output = output.replace(/{%DESCRIPTION%}/g, laptop.description);
     output = output.replace(/{%STORAGE%}/g, laptop.storage);
+    output = output.replace(/{%ID%}/g, laptop.id);
     return output;
 }
