@@ -22,7 +22,19 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, {
             'Content-type': 'text/html'
         });
-        res.end(`This is the laptop page for laptop ${id}`);
+
+        fs.readFile(`${__dirname}/templates/laptop-template.html`, 'utf-8', (err, data) => {
+            const laptop = laptopData[id];
+            let output = data.replace(/{%PRODUCTNAME%}/g, laptop.productName);
+            output = output.replace(/{%IMAGE%}/g, laptop.image);
+            output = output.replace(/{%CPU%}/g, laptop.cpu);
+            output = output.replace(/{%PRICE%}/g, laptop.price);
+            output = output.replace(/{%SCREEN%}/g, laptop.screen);
+            output = output.replace(/{%RAM%}/g, laptop.ram);
+            output = output.replace(/{%DESCRIPTION%}/g, laptop.description);
+            output = output.replace(/{%STORAGE%}/g, laptop.storage);
+            res.end(output);
+        });
     }
 
     // page not found
