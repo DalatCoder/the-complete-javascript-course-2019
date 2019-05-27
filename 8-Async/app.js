@@ -40,7 +40,7 @@ const getRecipe = recID => {
         title: 'Fresh tomoto pasta',
         publisher: 'Trong Hieu'
       };
-      resolve(`${ID}: ${recipe.title}.`);
+      resolve(`${ID}: ${recipe.title}`);
     }, 2000, recID);
   });
 };
@@ -52,7 +52,7 @@ const getRelated = publisher => {
         title: 'Italian Pizza',
         publisher: pub
       };
-      resolve(`${recipe2.title} from ${recipe2.publisher}.`);
+      resolve(`${recipe2.title} from ${recipe2.publisher}`);
     }, 2000, publisher);
   });
 };
@@ -82,5 +82,7 @@ async function getRecipeAW() {
   console.log(recipe);
   const related = await getRelated('Trong Hieu');
   console.log(related);
+
+  return recipe;
 }
-getRecipeAW();
+getRecipeAW().then(result => console.log(`${result} is the best ever.`));
