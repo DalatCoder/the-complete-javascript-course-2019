@@ -58,18 +58,29 @@ const getRelated = publisher => {
 };
 
 // Consume
-getIDs
-  .then(IDs => {
-    console.log(IDs);
-    return getRecipe(IDs[2]);
-  })
-  .then(recipe => {
-    console.log(recipe);
-    return getRelated('Trong Hieu');
-  })
-  .then(related => {
-    console.log(related);
-  })
-  .catch(error => {
-    console.log(error);
-  });
+// getIDs
+//   .then(IDs => {
+//     console.log(IDs);
+//     return getRecipe(IDs[2]);
+//   })
+//   .then(recipe => {
+//     console.log(recipe);
+//     return getRelated('Trong Hieu');
+//   })
+//   .then(related => {
+//     console.log(related);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+
+// Async/ await
+async function getRecipeAW() {
+  const IDs = await getIDs;
+  console.log(IDs);
+  const recipe = await getRecipe(IDs[2]);
+  console.log(recipe);
+  const related = await getRelated('Trong Hieu');
+  console.log(related);
+}
+getRecipeAW();
