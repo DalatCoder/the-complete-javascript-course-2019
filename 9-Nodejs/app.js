@@ -73,9 +73,22 @@ const server = http.createServer((req, res) => {
             'Content-type': 'image/jpg'
         });
 
-        fs.readFile(`${__dirname}/data/img/${pathName}`, (err, data) => {
+        // fs.readFile(`${__dirname}/data/img/${pathName}`, (err, data) => {
+        //     res.end(data);
+        // });
+
+        const getImage = path => {
+            return new Promise((resolve, reject) => {
+                fs.readFile(path, (err, data) => {
+                    resolve(data);
+                });
+            });
+        };
+        async function getImageAW(path) {
+            const data = await getImage(path);
             res.end(data);
-        });
+        };
+        getImageAW(`${__dirname}/data/img/${pathName}`);
     }
 
     // page not found
