@@ -71,16 +71,16 @@ const server = http.createServer((req, res) => {
         //     res.end(output);
         // });
 
-        const readLaptopTemplate = () => {
+        const readLaptopTemplate = (path) => {
             return new Promise((resolve, reject) => {
-                fs.readFile(`${__dirname}/templates/laptop-template.html`, 'utf-8', (err, data) => {
+                fs.readFile(path, 'utf-8', (err, data) => {
                     resolve(data);
                 });
             });
         };
 
         async function readDataAW() {
-            const data = await readLaptopTemplate();
+            const data = await readLaptopTemplate(`${__dirname}/templates/laptop-template.html`);
             const laptop = laptopData[id];
             const output = replaceTemplate(data, laptop);
             res.end(output);
