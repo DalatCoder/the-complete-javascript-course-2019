@@ -15,17 +15,47 @@ const server = http.createServer((req, res) => {
             'Content-type': 'text/html'
         });
 
-        fs.readFile(`${__dirname}/templates/overview-template.html`, 'utf-8', (err, data) => {
-
-            let overViewOutput = data;
-
-            fs.readFile(`${__dirname}/templates/card-template.html`, 'utf-8', (err, data) => {
-                const cards = laptopData.map(el => replaceTemplate(data, el)).join('');
-                overViewOutput = overViewOutput.replace('{%CARDS%}', cards);
-                res.end(overViewOutput);
+        const readOverViewTemplate = path => {
+            return new Promise((resolve, reject) => {
+                fs.readFile(path, 'utf-8', (err, data) => {
+                    resolve(data);
+                })
             });
+        };
 
-        });
+        const readCardTemplate = path => {
+            return new Promise((resolve, reject) => {
+                fs.readFile(path, 'utf-8', (err, data) => {
+                    resolve(data);
+                });
+            });
+        };
+
+        async function renderOverView() {
+            let overViewTemplate = await readOverViewTemplate(`${__dirname}/templates/overview-template.html`, 'utf-8');
+
+            let cardTemplate = await readCardTemplate(`${__dirname}/templates/card-template.html`);
+
+            let cards = laptopData.map(el => replaceTemplate(cardTemplate, el));
+            cards = cards.join('');
+
+            overViewTemplate = overViewTemplate.replace('{%CARDS%}', cards);
+
+            res.end(overViewTemplate);
+        };
+        renderOverView();
+
+        // fs.readFile(`${__dirname}/templates/overview-template.html`, 'utf-8', (err, data) => {
+
+        //     let overViewOutput = data;
+
+        //     fs.readFile(`${__dirname}/templates/card-template.html`, 'utf-8', (err, data) => {
+        //         const cards = laptopData.map(el => replaceTemplate(data, el)).join('');
+        //         overViewOutput = overViewOutput.replace('{%CARDS%}', cards);
+        //         res.end(overViewOutput);
+        //     });
+
+        // });
 
     }
 
