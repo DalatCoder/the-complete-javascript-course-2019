@@ -35,20 +35,36 @@ const server = http.createServer((req, res) => {
             'Content-type': 'text/html'
         });
 
-        const readData = new Promise((resolve, reject) => {
+        // fs.readFile(`${__dirname}/templates/laptop-template.html`, 'utf-8', (err, data) => {
+        //     const laptop = laptopData[id];
+        //     const output = replaceTemplate(data, laptop);
+        //     res.end(output);
+        // });
+
+        const readLaptopTemplate = () => {
+            return new Promise((resolve, reject) => {
                 fs.readFile(`${__dirname}/templates/laptop-template.html`, 'utf-8', (err, data) => {
                     resolve(data);
                 });
-            })
-            .then(data => {
-                const laptop = laptopData[id];
-                const output = replaceTemplate(data, laptop);
-                res.end(output);
-            })
-            .catch(error => {
-                console.log(error);
             });
+        };
 
+        async function readDataAW() {
+            const data = await readLaptopTemplate();
+            const laptop = laptopData[id];
+            const output = replaceTemplate(data, laptop);
+            res.end(output);
+        }
+        readDataAW();
+        // readData
+        //     .then(data => {
+        //         const laptop = laptopData[id];
+        //         const output = replaceTemplate(data, laptop);
+        //         res.end(output);
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     });
     }
 
     // images
