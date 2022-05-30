@@ -1,3 +1,3 @@
-# The Complete JavaScript Course 2019: Build Real Projects!
-## Author: Jonas Schmedtmann
-## Via: https://www.udemy.com/the-complete-javascript-course/
+# The Complete Javascript Course 2022 - From Zero to Expert!
+
+Jonas Udemy - Update 2022 íº€
