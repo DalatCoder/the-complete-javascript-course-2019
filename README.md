@@ -139,3 +139,60 @@ const s2 = `String with
 multiple
 lines`;
 ```
+
+### 1.8. Taking decisions
+
+```js
+const age = 19;
+
+const isOldEnough = age >= 19;
+
+if (isOldEnough) {
+  //
+} else {
+  //
+}
+```
+
+### 1.9. Type conversion & Coercion
+
+`type conversion` is when we manually convert from one type to another
+
+```js
+const inputYear = '2000';
+
+console.log(Number(inputYear)); // 2000
+console.log(Number('Hello')); // NaN
+```
+
+`type coercion` is when `js` automatically converts types behind the scenes for us
+
+```js
+console.log('I am ' + 23 + ' years old');
+console.log('I am ' + String(23) + ' years old');
+console.log('23' - '10' - 3); // 10
+console.log('23' + '10' + 3); // '23103'
+```
+
+### 1.10. Truthy & Falsy values
+
+`Falsy` values are values that are not exactly `false`, but will become `false`
+when we try to convert them into a `boolean`
+
+`5` `falsy` values in `js`
+
+- `0`
+- `''`
+- `undefined`
+- `null`
+- `NaN`
+
+Everything else are our so-called `truthy` values
+
+```js
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean(''));
+console.log(Boolean(null));
+console.log(Boolean(NaN));
+```
