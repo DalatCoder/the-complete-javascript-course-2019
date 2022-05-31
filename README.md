@@ -291,3 +291,13 @@ const age = 23;
 
 console.log(age > 18 ? 'I like to drink wine' : 'I like to drink water');
 ```
+
+### 1.17. Javascript Releases
+
+![Image](md_assets/jsrelease.png)
+
+![Image](md_assets/compability.png)
+
+![Image](md_assets/mordenjs.png)
+
+![Image](md_assets/course.png)
