@@ -99,3 +99,43 @@ really sure that the `variable` needs to change at some point
 in the future
 
 `var` is the old way of defining variables, prior to `ES6`
+
+### 1.6. Basic Operators
+
+> An operator basically allows us to transform values or combine multiple values,
+> and really do all kinds of work with values
+
+- Mathematical operators: `+`, `-`, `*`, `/`, `**`
+- Comparision operators: `>`, `<`, `==`, `===`, `>=`, `<=`
+- Logical operators
+- Assignment operators: `=`, `+=`, `-=`, `*=`, `/=`, `++`, `--`
+- ...
+
+Operator precedence
+
+### 1.7. Strings and template literals
+
+With template literals, we can write string in a more normal way,
+and then basically insert the variables directly into the string and then
+they will simply be replaced
+
+So basically a template literal can assemble multiple pieces into one final
+string
+
+```js
+const firstName = 'hieu';
+console.log(`Hello ${firstName}`);
+```
+
+Useful in building multiple line string
+
+```js
+const s1 =
+  'String with \n\
+multiple \n\
+lines';
+
+const s2 = `String with
+multiple
+lines`;
+```
