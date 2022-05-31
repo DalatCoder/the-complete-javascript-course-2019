@@ -196,3 +196,98 @@ console.log(Boolean(''));
 console.log(Boolean(null));
 console.log(Boolean(NaN));
 ```
+
+### 1.11. Equality Operators `==` vs `===`
+
+- `===` is called the `strict equality` operator, it does not perform `type coercion`
+- `==` is called the `loose equality` operator, it actually does perform `type coercion`
+
+Rule of thumb: Avoid the loose equality operator as much as you can
+
+### 1.12. Boolean logic
+
+`boolean logic` is a branch of computer science, which uses `true` and `false`
+values to solve complex logical problems
+
+- `and`: `true` when `ALL` are `true`
+- `or`: `true` when `ONE` is `true`
+- `not`: inverts `true/false` value
+
+### 1.13. Logical operators
+
+```js
+const hasDriverLicense = true;
+const hasGoodVision = true;
+
+if (hasDriverLicense && hasGoodVision) {
+  // ok
+}
+
+if (hasDriverLicense || hasGoodVision) {
+  // ok
+}
+
+if (!hasDriverLicense) {
+  // not ok
+}
+```
+
+### 1.14. The `switch` statement
+
+An alternative way of writing a complicated `if/else` statement
+
+```js
+const day = 'monday';
+
+switch (day) {
+  case 'monday': // day === 'monday'
+    break;
+
+  case 'tuesday': // day === 'tuesday'
+    break;
+
+  case 'wednesday': // day === 'wednesday'
+    break;
+
+  case 'thursday':
+  case 'friday':
+    break;
+
+  default:
+    break;
+}
+```
+
+### 1.15. `statement` & `expression`
+
+An `expression` is a piece of code that **produces a value**
+
+```js
+3 + 4; // expression
+2000; // expression
+true & false & !false; // expression
+'hello' + ' ' + 'world';
+```
+
+A `statement` is like a bigger piece of code that is executed and which
+does not produce a value of itself
+
+A `statement` is like a `complete` sentence and `expressions` are like the words
+that make up the sentences
+
+Now basically, we write our whole programs as a sequence of actions. And these
+actions are `statements`
+
+Now this difference between `expressions` and `statements` is importance
+to know because `js` expects statements and expressions in different places
+
+For example, in a `template literal`, we can only insert `expressions`, but not
+`statements`
+
+### 1.16. The conditional (`ternary`) operator
+
+```js
+const age = 23;
+
+console.log(age > 18 ? 'I like to drink wine' : 'I like to drink water');
+```
